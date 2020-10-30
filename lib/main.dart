@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       context: context,
                       child: AlertDialog(
                         title: Text('Ошибка'),
-                        content: Text("Эта функция в разработке..."),
+                        content: Text("Эта функция в разработке."),
                       ),
                     );
                   },
