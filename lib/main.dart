@@ -131,9 +131,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     offset: Offset(5, 5))
               ]),
               width: double.infinity,
-              height: 80.0,
+              height: 120.0,
               alignment: Alignment.center,
-              child: Text("Скоро здесь что-то будет."),
+              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration:
+                        InputDecoration(labelText: "Введите ключевые слова"),
+                  ),
+                  RaisedButton(onPressed: () => {}, child: Text("Искать"))
+                ],
+              ),
             ),
             Container(
                 padding: const EdgeInsets.all(20.0),

@@ -1,24 +1,39 @@
 import "package:flutter/material.dart";
-import "EmptyPage.dart";
+import 'package:url_launcher/url_launcher.dart';
 
-class ProforientationPage extends StatefulWidget {
-  @override
-  _ProforientationPageState createState() => _ProforientationPageState();
+_launchTest1() async {
+  const url = "https://profilum.ru/test-na-professiyu";
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw "Could not launch $url";
+  }
 }
 
-int countOfEvents = 11;
-int maxCountOfEvents = 50;
+_launchTest2() async {
+  const url = "http://test.skillfolio.ru/birthday";
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw "Could not launch $url";
+  }
+}
 
-class _ProforientationPageState extends State<ProforientationPage> {
+class QuestionPage extends StatefulWidget {
+  @override
+  _QuestionPageState createState() => _QuestionPageState();
+}
+
+class _QuestionPageState extends State<QuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Профориентация"),
+        title: Text("Список тестов"),
       ),
       body: Column(children: [
         Container(
-          height: 200.0,
+          height: 200,
           width: double.infinity,
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
@@ -31,21 +46,34 @@ class _ProforientationPageState extends State<ProforientationPage> {
                 offset: Offset(5, 5))
           ]),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                  "Пройденные спортивные события (${countOfEvents} из ${maxCountOfEvents})"),
-              LinearProgressIndicator(
-                value: countOfEvents / maxCountOfEvents,
-                minHeight: 10,
-              ),
-              Text("${((countOfEvents / maxCountOfEvents) * 100).round()}%"),
+              RaisedButton(child: Text("Тест 1"), onPressed: _launchTest1),
+              RaisedButton(child: Text("Тест 2"), onPressed: _launchTest1),
             ],
           ),
         ),
+      ]),
+    );
+  }
+}
+
+class ProforientationPage extends StatefulWidget {
+  @override
+  _ProforientationPageState createState() => _ProforientationPageState();
+}
+
+class _ProforientationPageState extends State<ProforientationPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Профориентация"),
+      ),
+      body: Column(children: [
         Container(
-          height: 200.0,
+          height: 150,
           width: double.infinity,
-          child: Text("Скоро здесь что-то будет."),
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
           padding: EdgeInsets.all(20.0),
@@ -56,7 +84,20 @@ class _ProforientationPageState extends State<ProforientationPage> {
                 blurRadius: 10.0,
                 offset: Offset(5, 5))
           ]),
-        )
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                  "Обязательно пройдите эти тесты, они помогут вам выбрать вашу будущую профессию!"),
+              RaisedButton(
+                  child: Text("Ссылки на тест"),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => QuestionPage()));
+                  }),
+            ],
+          ),
+        ),
       ]),
     );
   }

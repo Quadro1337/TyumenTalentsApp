@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:flutter_app/EmptyPage.dart';
-import 'ProforientationPage.dart';
+import 'TargetPage.dart';
 import 'FindMentorPage.dart';
+import 'ProforientationPage.dart';
 
 class MyProfile extends StatelessWidget {
   final List<Widget> column1;
@@ -52,10 +53,10 @@ class MyProfile extends StatelessWidget {
           child: Column(
             children: [
               RaisedButton(
-                  child: Text("Профориентация"),
+                  child: Text("Цели и развитие"),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProforientationPage()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TargetPage()));
                   }),
               RaisedButton(
                   child: Text("Поиск наставника"),
@@ -70,10 +71,10 @@ class MyProfile extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => EmptyPage()));
                   }),
               RaisedButton(
-                  child: Text("Цели и развитие"),
+                  child: Text("Профориентация"),
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => EmptyPage()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProforientationPage()));
                   }),
               RaisedButton(
                   child: Text("Список достижений"),

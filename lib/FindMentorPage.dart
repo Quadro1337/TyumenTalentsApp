@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
-
-void _voidFunc() {}
+import 'EmptyPage.dart';
 
 class DefaultTask extends StatelessWidget {
   final String title;
@@ -27,7 +26,10 @@ class DefaultTask extends StatelessWidget {
             child: Row(children: hashtags),
           ),
           RaisedButton(
-            onPressed: _voidFunc,
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => EmptyPage()));
+            },
             child: Text("Искать наставника"),
           )
         ],
@@ -125,10 +127,12 @@ class _FindMentorPageState extends State<FindMentorPage> {
                   )
                 ],
               ),
-              Text("Критерии наставников"),
               RaisedButton(
-                onPressed: _voidFunc,
-                child: Text("Искать ментора"),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => EmptyPage()));
+                },
+                child: Text("Искать наставника в общем списке"),
               )
             ],
           )),
