@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "DefaultPost.dart";
 import "DefaultEvent.dart";
 import 'myProfile.dart';
+import 'myParters.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Таланты Тюмени",
+      title: "Таланты 72",
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Таланты Тюмени"),
+        title: Text("Таланты 72"),
       ),
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
@@ -122,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-              decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+              decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
                 BoxShadow(
                     color: Color(0x350000000),
                     spreadRadius: 5.0,
@@ -145,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-              decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+              decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
                 BoxShadow(
                     color: Color(0x350000000),
                     spreadRadius: 5.0,
@@ -163,10 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ));
       case 2:
-        return Container(
-            child: Center(
-          child: Text("В разработке..."),
-        ));
+        return MyPartners();
       case 3:
         return MyProfile(
           column1: [

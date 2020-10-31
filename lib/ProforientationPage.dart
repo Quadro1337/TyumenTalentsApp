@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "EmptyPage.dart";
 
 class ProforientationPage extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _ProforientationPageState extends State<ProforientationPage> {
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
           padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+          decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
             BoxShadow(
                 color: Color(0x350000000),
                 spreadRadius: 5.0,
@@ -48,7 +49,7 @@ class _ProforientationPageState extends State<ProforientationPage> {
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
           padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+          decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
             BoxShadow(
                 color: Color(0x350000000),
                 spreadRadius: 5.0,

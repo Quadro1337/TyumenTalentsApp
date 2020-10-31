@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter_app/EmptyPage.dart';
 import 'ProforientationPage.dart';
 import 'FindMentorPage.dart';
 
@@ -11,11 +12,11 @@ class MyProfile extends StatelessWidget {
     return Container(
       child: Column(children: [
         Container(
-          height: 100.0,
+          height: 90.0,
           width: double.infinity,
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
-          decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+          decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
             BoxShadow(
                 color: Color(0x350000000),
                 spreadRadius: 5.0,
@@ -41,7 +42,7 @@ class MyProfile extends StatelessWidget {
           padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0, bottom: 20.0),
-          decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+          decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
             BoxShadow(
                 color: Color(0x350000000),
                 spreadRadius: 5.0,
@@ -65,20 +66,20 @@ class MyProfile extends StatelessWidget {
               RaisedButton(
                   child: Text("Чат с наставником"),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProforientationPage()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => EmptyPage()));
                   }),
               RaisedButton(
                   child: Text("Цели и развитие"),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProforientationPage()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => EmptyPage()));
                   }),
               RaisedButton(
                   child: Text("Список достижений"),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProforientationPage()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => EmptyPage()));
                   }),
             ],
           ),

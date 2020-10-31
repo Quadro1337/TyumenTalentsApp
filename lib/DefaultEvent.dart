@@ -13,7 +13,7 @@ class DefaultEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+        decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
           BoxShadow(
               color: Color(0x350000000),
               spreadRadius: 5.0,
