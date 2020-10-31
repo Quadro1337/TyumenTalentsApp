@@ -52,36 +52,56 @@ class MyProfile extends StatelessWidget {
           ]),
           child: Column(
             children: [
-              RaisedButton(
-                  child: Text("Цели и развитие"),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TargetPage()));
-                  }),
-              RaisedButton(
-                  child: Text("Поиск наставника"),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FindMentorPage()));
-                  }),
-              RaisedButton(
-                  child: Text("Чат с наставником"),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => EmptyPage()));
-                  }),
-              RaisedButton(
-                  child: Text("Профориентация"),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProforientationPage()));
-                  }),
-              RaisedButton(
-                  child: Text("Список достижений"),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => EmptyPage()));
-                  }),
+              Container(
+                  width: 340,
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 20, top: 10),
+                  child: RaisedButton(
+                      child: Text("Цели и развитие"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => TargetPage()));
+                      })),
+              Container(
+                  width: 340,
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: RaisedButton(
+                      child: Text("Поиск наставника"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => FindMentorPage()));
+                      })),
+              Container(
+                  width: 340,
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: RaisedButton(
+                      child: Text("Чат с наставником"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => EmptyPage()));
+                      })),
+              Container(
+                  width: 340,
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: RaisedButton(
+                      child: Text("Профориентация"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProforientationPage()));
+                      })),
+              Container(
+                  width: 340,
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: RaisedButton(
+                      child: Text("Список достижений"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => EmptyPage()));
+                      })),
             ],
           ),
         )
