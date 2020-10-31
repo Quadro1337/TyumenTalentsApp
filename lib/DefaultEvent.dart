@@ -1,16 +1,18 @@
 import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
 
-class DefaultPost extends StatelessWidget {
+class DefaultEvent extends StatelessWidget {
   final String date;
-  final String author;
+  final String age;
+  final String category;
   final String value;
-  const DefaultPost({Key key, this.value, this.author, this.date})
+  final String title;
+  const DefaultEvent(
+      {Key key, this.value, this.age, this.date, this.category, this.title})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-        // decoration: BoxDecoration(color: Color(0xFFEFEFEF)),
         decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
           BoxShadow(
               color: Color(0x350000000),
@@ -23,8 +25,16 @@ class DefaultPost extends StatelessWidget {
         padding: EdgeInsets.only(top: 20.0, left: 20.0, bottom: 20.0),
         child: Column(children: [
           Row(children: [
-            Text("Автор: "),
-            Text(author, style: TextStyle(color: Colors.deepOrange))
+            Text("Название: "),
+            Text(title, style: TextStyle(color: Colors.deepOrange))
+          ]),
+          Row(children: [
+            Text("Категория: "),
+            Text(category, style: TextStyle(color: Colors.deepOrange))
+          ]),
+          Row(children: [
+            Text("Возраст: "),
+            Text(age, style: TextStyle(color: Colors.deepOrange))
           ]),
           Row(children: [
             Text("Дата: "),

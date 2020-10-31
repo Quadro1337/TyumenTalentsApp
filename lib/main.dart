@@ -1,6 +1,8 @@
 import "package:fancy_bottom_navigation/fancy_bottom_navigation.dart";
 import "package:flutter/material.dart";
-import 'DefaultPost.dart';
+import "DefaultPost.dart";
+import "DefaultEvent.dart";
+import 'myProfile.dart';
 
 void main() => runApp(MyApp());
 
@@ -54,9 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
-        child: Center(
-          child: _getPage(currentPage),
-        ),
+        child: _getPage(currentPage),
       ),
       bottomNavigationBar: FancyBottomNavigation(
         tabs: [
@@ -69,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 fState.setPage(2);
               }),
           TabData(
-            iconData: Icons.search,
-            title: "Поиск",
+            iconData: Icons.add_location_alt,
+            title: "События",
           ),
           TabData(iconData: Icons.workspaces_filled, title: "Партнеры"),
           TabData(iconData: Icons.account_box, title: "Профиль")
@@ -90,29 +90,27 @@ class _MyHomePageState extends State<MyHomePage> {
     return [
       DefaultPost(
           author: "Иванов Иван Иванович",
-          date: "31.10.2020",
+          date: "30.10.2020",
           value:
               "Тестовый пост, просто для того чтобы показать как будет выглядеть наше приложение."),
       DefaultPost(
-          author: "Иванов Иван Иванович",
+          author: "Сергеев Сергей Сергеевич",
           date: "31.10.2020",
           value:
-              "зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов."),
-      DefaultPost(
-          author: "Иванов Иван Иванович",
-          date: "31.10.2020",
-          value:
-              "зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов."),
-      DefaultPost(
-          author: "Иванов Иван Иванович",
-          date: "31.10.2020",
-          value:
-              "зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов."),
-      DefaultPost(
-          author: "Иванов Иван Иванович",
-          date: "31.10.2020",
-          value:
-              "зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов.")
+              "Текст (от лат. textus — ткань; сплетение, сочетание) — зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов. Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления знаний о внешней тексту действительности. В лингвистике термин «текст» используется в широком значении, включая и образцы устной речи. Восприятие текста изучается в рамках лингвистики текста и психолингвистики. Так, например, И. Р. Гальперин определяет текст следующим образом: «Это письменное сообщение, объективированное в виде письменного документа, состоящее из ряда высказываний, объединённых разными типами лексической, грамматической и логической связи, имеющее определённый моральный характер, прагматическую установку и соответственно литературно обработанное»[1]."),
+    ];
+  }
+
+  _getEvents() {
+    return [
+      DefaultEvent(
+        title: "Веселые поплавки",
+        date: "13.01.2021 - 16.01.2021",
+        value:
+            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
+        age: "13-17",
+        category: "Плаванье",
+      )
     ];
   }
 
@@ -121,45 +119,71 @@ class _MyHomePageState extends State<MyHomePage> {
       case 0:
         return SingleChildScrollView(
             child: Column(
-          children: _getPosts(),
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+              decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+                BoxShadow(
+                    color: Color(0x350000000),
+                    spreadRadius: 5.0,
+                    blurRadius: 10.0,
+                    offset: Offset(5, 5))
+              ]),
+              width: double.infinity,
+              height: 80.0,
+              alignment: Alignment.center,
+              child: Text("Скоро здесь что-то будет."),
+            ),
+            Container(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(children: _getPosts()))
+          ],
         ));
       case 1:
-        return Container(
-            padding: const EdgeInsets.all(20.0),
+        return SingleChildScrollView(
             child: Column(
-              children: <Widget>[
-                Text("Поиск"),
-                TextField(
-                  toolbarOptions: ToolbarOptions(
-                      copy: true, cut: true, paste: true, selectAll: true),
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      hintText: "Введите ключевые слова"),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      child: AlertDialog(
-                        title: Text('Ошибка'),
-                        content: Text("Эта функция в разработке."),
-                      ),
-                    );
-                  },
-                  child: Text("Искать"),
-                ),
-              ],
-            ));
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+              decoration: BoxDecoration(color: Color(0xFFEFEFEF), boxShadow: [
+                BoxShadow(
+                    color: Color(0x350000000),
+                    spreadRadius: 5.0,
+                    blurRadius: 10.0,
+                    offset: Offset(5, 5))
+              ]),
+              width: double.infinity,
+              height: 80.0,
+              alignment: Alignment.center,
+              child: Text("Скоро здесь что-то будет."),
+            ),
+            Container(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(children: _getEvents()))
+          ],
+        ));
       case 2:
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text("В разработке..."),
+        return Container(
+            child: Center(
+          child: Text("В разработке..."),
+        ));
+      case 3:
+        return MyProfile(
+          column1: [
+            Text("ФИО:"),
+            Text("Дата рождения:"),
+            Text("Номер телефона:"),
+            Text("Электронная почта:")
+          ],
+          column2: [
+            Text("Иванов Иван Иванович",
+                style: TextStyle(color: Colors.deepOrange)),
+            Text("01.01.2010", style: TextStyle(color: Colors.deepOrange)),
+            Text("+7-123-456-7890", style: TextStyle(color: Colors.deepOrange)),
+            Text("ivan_ivanov2010@mail.ru",
+                style: TextStyle(color: Colors.deepOrange))
           ],
         );
-      case 3:
-        return Scaffold();
     }
   }
 }
