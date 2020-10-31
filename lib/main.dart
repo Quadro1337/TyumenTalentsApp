@@ -4,6 +4,7 @@ import "DefaultPost.dart";
 import "DefaultEvent.dart";
 import 'myProfile.dart';
 import 'myParters.dart';
+import 'BigButton.dart';
 
 void main() => runApp(MyApp());
 
@@ -92,6 +93,30 @@ class _MyHomePageState extends State<MyHomePage> {
             "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
         age: "13-17",
         category: "Плаванье",
+      ),
+      DefaultEvent(
+        title: "Веселые поплавки",
+        date: "13.01.2021 - 16.01.2021",
+        value:
+            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
+        age: "13-17",
+        category: "Плаванье",
+      ),
+      DefaultEvent(
+        title: "Веселые поплавки",
+        date: "13.01.2021 - 16.01.2021",
+        value:
+            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
+        age: "13-17",
+        category: "Плаванье",
+      ),
+      DefaultEvent(
+        title: "Веселые поплавки",
+        date: "13.01.2021 - 16.01.2021",
+        value:
+            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
+        age: "13-17",
+        category: "Плаванье",
       )
     ];
   }
@@ -103,28 +128,46 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-              decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-                BoxShadow(
-                    color: Color(0x350000000),
-                    spreadRadius: 5.0,
-                    blurRadius: 10.0,
-                    offset: Offset(5, 5))
-              ]),
-              width: double.infinity,
-              height: 120.0,
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(left: 20.0, right: 20.0),
-              child: Column(
-                children: [
-                  TextField(
-                    decoration:
-                        InputDecoration(labelText: "Введите ключевые слова"),
-                  ),
-                  RaisedButton(onPressed: () => {}, child: Text("Искать"))
-                ],
-              ),
-            ),
+                margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+                decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
+                  BoxShadow(
+                      color: Color(0x350000000),
+                      spreadRadius: 5.0,
+                      blurRadius: 10.0,
+                      offset: Offset(5, 5))
+                ]),
+                width: double.infinity,
+                height: 120.0,
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 200,
+                      padding: EdgeInsets.only(bottom: 15),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            labelText: "Введите ключевые слова"),
+                      ),
+                    ),
+                    Container(
+                        height: 40.0,
+                        width: 130.0,
+                        padding: EdgeInsets.only(left: 20.0),
+                        child: BigButton(
+                          callback: () {},
+                          child: Text("Искать"),
+                        )
+                        // child: FlatButton(
+                        //   onPressed: () {},
+                        //   child: Text("Искать"),
+                        //   shape: StadiumBorder(),
+                        //   color: Colors.deepOrange,
+                        //   textColor: Colors.white,
+                        // )
+                        )
+                  ],
+                )),
             Container(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(children: _getPosts()))

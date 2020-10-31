@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:flutter/rendering.dart';
+import "package:flutter/rendering.dart";
+import "ContentPage.dart";
 
 class DefaultPost extends StatelessWidget {
   final String date;
@@ -7,8 +8,8 @@ class DefaultPost extends StatelessWidget {
   final String value;
   const DefaultPost({Key key, this.value, this.author, this.date})
       : super(key: key);
-  @override
-  Widget build(BuildContext context) {
+
+  _getContent() {
     return Container(
         // decoration: BoxDecoration(color: Color(0xFFEFEFEF)),
         decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
@@ -22,17 +23,40 @@ class DefaultPost extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
         padding: EdgeInsets.only(top: 20.0, left: 20.0, bottom: 20.0),
         child: Column(children: [
-          Row(children: [
-            Text("Автор: "),
-            Text(author, style: TextStyle(color: Colors.deepOrange))
-          ]),
-          Row(children: [
-            Text("Дата: "),
-            Text(date, style: TextStyle(color: Colors.deepOrange))
-          ]),
           Container(
-              padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-              child: Text(value)),
+              margin: EdgeInsets.only(bottom: 10.0),
+              child: Column(
+                children: [
+                  Row(children: [
+                    Text("Автор: ", textScaleFactor: 1.25),
+                    Text(author,
+                        style: TextStyle(color: Colors.deepOrange),
+                        textScaleFactor: 1.25)
+                  ]),
+                  Row(children: [
+                    Text("Дата: ", textScaleFactor: 1.25),
+                    Text(date,
+                        style: TextStyle(color: Colors.deepOrange),
+                        textScaleFactor: 1.25)
+                  ])
+                ],
+              )),
+          Container(
+              padding: EdgeInsets.only(right: 10.0),
+              child: Text(
+                value,
+                textScaleFactor: 1.15,
+              )),
         ]));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ContentPage(_getContent(), Container())));
+        },
+        child: _getContent());
   }
 }

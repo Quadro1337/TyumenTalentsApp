@@ -1,14 +1,21 @@
 import "package:flutter/material.dart";
 
-class EmptyPage extends StatefulWidget {
+class ContentPage extends StatefulWidget {
+  Widget content;
+  Widget title;
+  ContentPage(this.content, this.title);
   @override
-  _EmptyPageState createState() => _EmptyPageState();
+  _ContentPageState createState() =>
+      _ContentPageState(this.content, this.title);
 }
 
-class _EmptyPageState extends State<EmptyPage> {
+class _ContentPageState extends State<ContentPage> {
+  Widget content;
+  Widget title;
+  _ContentPageState(this.content, this.title);
   _getEmptyContain() {
     return Container(
-      height: 100,
+      //height: 100,
       width: double.infinity,
       margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
       padding: EdgeInsets.all(20.0),
@@ -19,10 +26,7 @@ class _EmptyPageState extends State<EmptyPage> {
             blurRadius: 10.0,
             offset: Offset(5, 5))
       ]),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("В разработке...")],
-      ),
+      child: Container(),
     );
   }
 
@@ -30,9 +34,9 @@ class _EmptyPageState extends State<EmptyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Пустая страница"),
+        title: this.title,
       ),
-      body: _getEmptyContain(),
+      body: content == null ? _getEmptyContain() : content,
     );
   }
 }

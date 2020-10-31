@@ -11,7 +11,7 @@ class DefaultPromo extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return FlatButton(
         onPressed: () {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => EmptyPage()));
@@ -61,7 +61,7 @@ class _PromoPageState extends State<PromoPage> {
         title: Text("Акции"),
       ),
       body: Container(
-          margin: EdgeInsets.only(left: 20.0, right: 20.0),
+          margin: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
           child: Column(children: [
             DefaultPromo(
               title: "Нули и единицы",

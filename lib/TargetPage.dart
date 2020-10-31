@@ -36,10 +36,13 @@ class _TargetPageState extends State<TargetPage> {
                   style: TextStyle(color: Colors.deepOrange)),
               Text(
                   "Пройденные спортивные события (${countOfEvents} из ${maxCountOfEvents})"),
-              LinearProgressIndicator(
-                value: countOfEvents / maxCountOfEvents,
-                minHeight: 10,
-              ),
+              Container(
+                  padding: EdgeInsets.only(
+                      top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
+                  child: LinearProgressIndicator(
+                    value: countOfEvents / maxCountOfEvents,
+                    minHeight: 10,
+                  )),
               Text("${((countOfEvents / maxCountOfEvents) * 100).round()}%"),
             ],
           ),
