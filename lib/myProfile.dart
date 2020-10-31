@@ -38,6 +38,40 @@ class MyProfile extends StatelessWidget {
           ),
         ),
         Container(
+            height: 90.0,
+            width: double.infinity,
+            margin: EdgeInsets.only(
+                left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
+            decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
+              BoxShadow(
+                  color: Color(0x350000000),
+                  spreadRadius: 5.0,
+                  blurRadius: 10.0,
+                  offset: Offset(5, 5))
+            ]),
+            child: Container(
+                padding: EdgeInsets.all(10.0),
+                child: Column(children: [
+                  Table(children: [
+                    TableRow(children: [
+                      Text("Рейтинг", textScaleFactor: 2.0),
+                      Text("8900",
+                          textScaleFactor: 2.0,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(color: Colors.deepOrange))
+                    ]),
+                  ]),
+                  Table(children: [
+                    TableRow(children: [
+                      Text("Место в топе", textScaleFactor: 2.0),
+                      Text("13",
+                          textScaleFactor: 2.0,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(color: Colors.deepOrange))
+                    ]),
+                  ]),
+                ]))),
+        Container(
           //height: 100.0,
           width: double.infinity,
           padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -57,7 +91,7 @@ class MyProfile extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(bottom: 20, top: 10),
                   child: RaisedButton(
-                      child: Text("Цели и развитие"),
+                      child: Text("Цели и развитие", textScaleFactor: 2),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => TargetPage()));
@@ -67,7 +101,7 @@ class MyProfile extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(bottom: 20),
                   child: RaisedButton(
-                      child: Text("Поиск наставника"),
+                      child: Text("Поиск наставника", textScaleFactor: 2),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => FindMentorPage()));
@@ -77,7 +111,7 @@ class MyProfile extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(bottom: 20),
                   child: RaisedButton(
-                      child: Text("Чат с наставником"),
+                      child: Text("Чат с наставником", textScaleFactor: 2),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => EmptyPage()));
@@ -87,7 +121,7 @@ class MyProfile extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(bottom: 20),
                   child: RaisedButton(
-                      child: Text("Профориентация"),
+                      child: Text("Профориентация", textScaleFactor: 2),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => ProforientationPage()));
@@ -97,7 +131,7 @@ class MyProfile extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(bottom: 10),
                   child: RaisedButton(
-                      child: Text("Список достижений"),
+                      child: Text("Список достижений", textScaleFactor: 2),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => EmptyPage()));

@@ -7,25 +7,6 @@ import 'myParters.dart';
 
 void main() => runApp(MyApp());
 
-class SecondPage extends StatefulWidget {
-  @override
-  _SecondPageState createState() => _SecondPageState();
-}
-
-class _SecondPageState extends State<SecondPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Создать новость"),
-      ),
-      body: Center(
-        child: Text("В разработке..."),
-      ),
-    );
-  }
-}
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -177,18 +158,24 @@ class _MyHomePageState extends State<MyHomePage> {
       case 3:
         return MyProfile(
           column1: [
-            Text("ФИО:"),
-            Text("Дата рождения:"),
-            Text("Номер телефона:"),
-            Text("Электронная почта:")
+            Text("ФИО:", textScaleFactor: 1.1),
+            Text("Дата рождения:", textScaleFactor: 1.1),
+            Text("Номер телефона:", textScaleFactor: 1.1),
+            Text("Электронная почта:", textScaleFactor: 1.1)
           ],
           column2: [
             Text("Иванов Иван Иванович",
-                style: TextStyle(color: Colors.deepOrange)),
-            Text("01.01.2010", style: TextStyle(color: Colors.deepOrange)),
-            Text("+7-123-456-7890", style: TextStyle(color: Colors.deepOrange)),
+                style: TextStyle(color: Colors.deepOrange),
+                textScaleFactor: 1.1),
+            Text("01.01.2010",
+                style: TextStyle(color: Colors.deepOrange),
+                textScaleFactor: 1.1),
+            Text("+7-123-456-7890",
+                style: TextStyle(color: Colors.deepOrange),
+                textScaleFactor: 1.1),
             Text("ivan_ivanov2010@mail.ru",
-                style: TextStyle(color: Colors.deepOrange))
+                style: TextStyle(color: Colors.deepOrange),
+                textScaleFactor: 1.1)
           ],
         );
     }
