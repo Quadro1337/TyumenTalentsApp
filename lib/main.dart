@@ -2,9 +2,10 @@ import "package:fancy_bottom_navigation/fancy_bottom_navigation.dart";
 import "package:flutter/material.dart";
 import "DefaultPost.dart";
 import "DefaultEvent.dart";
-import 'myProfile.dart';
-import 'myParters.dart';
-import 'BigButton.dart';
+import "myProfile.dart";
+import "myParters.dart";
+import "BigButton.dart";
+import "ContentPage.dart";
 
 void main() => runApp(MyApp());
 
@@ -35,6 +36,59 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Row(
+            children: [
+              BigButton(
+                child: Icon(Icons.search, size: 35.0),
+                //icon: Icons.search,
+                callback: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ContentPage(
+                          Container(
+                              margin: EdgeInsets.only(
+                                  top: 10.0, left: 20.0, right: 20.0),
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color(0xFFFFFFFF),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color(0x350000000),
+                                        spreadRadius: 5.0,
+                                        blurRadius: 10.0,
+                                        offset: Offset(5, 5))
+                                  ]),
+                              width: double.infinity,
+                              height: 120.0,
+                              alignment: Alignment.centerLeft,
+                              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 200,
+                                    padding: EdgeInsets.only(bottom: 15),
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                          labelText: "Введите ключевые слова"),
+                                    ),
+                                  ),
+                                  Container(
+                                      height: 40.0,
+                                      width: 130.0,
+                                      padding: EdgeInsets.only(left: 20.0),
+                                      child: BigButton(
+                                        callback: () {},
+                                        child: Text("Искать"),
+                                      ))
+                                ],
+                              )),
+                          Text("Поиск по приложению"))));
+                },
+              )
+            ],
+          )
+        ],
         title: Text("Таланты 72"),
       ),
       body: Container(
@@ -94,37 +148,32 @@ class _MyHomePageState extends State<MyHomePage> {
   _getEvents() {
     return [
       DefaultEvent(
+        level: "Мунициальное",
         title: "Веселые поплавки",
         date: "13.01.2021 - 16.01.2021",
         value:
             "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
-        age: "13-17",
-        category: "Плаванье",
+        age: "12-17",
+        category: "Плаванье, спорт",
       ),
       DefaultEvent(
-        title: "Веселые поплавки",
-        date: "13.01.2021 - 16.01.2021",
+        level: "Региональное",
+        title: "Сибирский комик",
+        date: "27.11.2020 - 31.12.2020",
         value:
-            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
-        age: "13-17",
-        category: "Плаванье",
+            "В доме Культуры \"Сокровища Попая\" пройдёт первый конкурс стендапа и юмора среди молодежи. Наша сцена ждёт самых харизматичных и талантливых юмористов и комиков. Всех участников ждёт незабываемый опыт и невероятные ощущения, вы прокачаете свой навык работы на сцене! И, конечно же, победителей уже ждут их призы!",
+        age: "16-35",
+        category: "Творчество, юмор, стендап",
       ),
       DefaultEvent(
-        title: "Веселые поплавки",
-        date: "13.01.2021 - 16.01.2021",
+        level: "Городское",
+        title: "Деревья жмут F5",
+        date: "19.06.2021 - 26.06.2021",
         value:
-            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
-        age: "13-17",
-        category: "Плаванье",
+            "Тюменский клуб путешественников зовёт к себе в подмогу юных волонтеров, чтобы озеленить городской парк.",
+        age: "6-18",
+        category: "Волонтерство",
       ),
-      DefaultEvent(
-        title: "Веселые поплавки",
-        date: "13.01.2021 - 16.01.2021",
-        value:
-            "В центральном бассейне пройдет чемпионат по плаванию \"Веселые поплавки\". Если ты смелый, ловкий и умелый, то ты точно станешь самым крутым дельфином в этом водоёме.",
-        age: "13-17",
-        category: "Плаванье",
-      )
     ];
   }
 
@@ -135,42 +184,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
           children: [
             Container(
-                margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    color: Color(0xFFFFFFFF),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color(0x350000000),
-                          spreadRadius: 5.0,
-                          blurRadius: 10.0,
-                          offset: Offset(5, 5))
-                    ]),
-                width: double.infinity,
-                height: 120.0,
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 200,
-                      padding: EdgeInsets.only(bottom: 15),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            labelText: "Введите ключевые слова"),
-                      ),
-                    ),
-                    Container(
-                        height: 40.0,
-                        width: 130.0,
-                        padding: EdgeInsets.only(left: 20.0),
-                        child: BigButton(
-                          callback: () {},
-                          child: Text("Искать"),
-                        ))
-                  ],
-                )),
-            Container(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(children: _getPosts()))
           ],
@@ -179,23 +192,6 @@ class _MyHomePageState extends State<MyHomePage> {
         return SingleChildScrollView(
             child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Color(0xFFFFFFFF),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Color(0x350000000),
-                        spreadRadius: 5.0,
-                        blurRadius: 10.0,
-                        offset: Offset(5, 5))
-                  ]),
-              width: double.infinity,
-              height: 80.0,
-              alignment: Alignment.center,
-              child: Text("Скоро здесь что-то будет."),
-            ),
             Container(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(children: _getEvents()))

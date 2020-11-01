@@ -3,13 +3,20 @@ import 'package:flutter/rendering.dart';
 import 'ContentPage.dart';
 
 class DefaultEvent extends StatelessWidget {
+  final String level;
   final String date;
   final String age;
   final String category;
   final String value;
   final String title;
   const DefaultEvent(
-      {Key key, this.value, this.age, this.date, this.category, this.title})
+      {Key key,
+      this.value,
+      this.age,
+      this.date,
+      this.category,
+      this.title,
+      this.level})
       : super(key: key);
   _getContent() {
     return Container(
@@ -37,12 +44,6 @@ class DefaultEvent extends StatelessWidget {
             )
           ]),
           Row(children: [
-            Text("Категория: ", textScaleFactor: 1.25),
-            Text(category,
-                style: TextStyle(color: Colors.deepOrange),
-                textScaleFactor: 1.25)
-          ]),
-          Row(children: [
             Text("Возраст: ", textScaleFactor: 1.25),
             Text(age,
                 style: TextStyle(color: Colors.deepOrange),
@@ -60,6 +61,9 @@ class DefaultEvent extends StatelessWidget {
                 value,
                 textScaleFactor: 1.15,
               )),
+          Text("Категория: " + level, textScaleFactor: 1.25),
+          Text(category,
+              style: TextStyle(color: Colors.deepOrange), textScaleFactor: 1.25)
         ]));
   }
 

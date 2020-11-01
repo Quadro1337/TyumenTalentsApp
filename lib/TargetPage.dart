@@ -23,7 +23,8 @@ Widget getItemByItself(it, context) {
   return Container(
       margin: EdgeInsets.only(top: 20.0),
       child: Column(children: [
-        Text(it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})"),
+        Text(it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})",
+            textScaleFactor: 1.1),
         Container(
             padding:
                 EdgeInsets.only(top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
@@ -31,7 +32,8 @@ Widget getItemByItself(it, context) {
               value: it.countOfEvents / it.maxCountOfEvents,
               minHeight: 10,
             )),
-        Text("${((it.countOfEvents / it.maxCountOfEvents) * 100).round()}%")
+        Text("${((it.countOfEvents / it.maxCountOfEvents) * 100).round()}%",
+            textScaleFactor: 1.1)
       ]));
 }
 
@@ -53,8 +55,8 @@ Widget getItemByItselfDetail(it, context) {
         Container(
             padding: EdgeInsets.only(bottom: 10.0),
             child: Column(children: [
-              Text(
-                  it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})"),
+              Text(it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})",
+                  textScaleFactor: 1.1),
               Container(
                   padding: EdgeInsets.only(
                       top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
@@ -63,10 +65,12 @@ Widget getItemByItselfDetail(it, context) {
                     minHeight: 10,
                   )),
               Text(
-                  "Осталось ${(100.0 - it.countOfEvents / it.maxCountOfEvents * 100.0).round()}%")
+                  "Осталось ${(100.0 - it.countOfEvents / it.maxCountOfEvents * 100.0).round()}%",
+                  textScaleFactor: 1.1)
             ])),
         Text(
-            "Для того чтобы закончить данное задание вам надо посетить еще ${it.maxCountOfEvents - it.countOfEvents} мероприятий.")
+            "Для того чтобы закончить данное задание вам надо посетить еще ${it.maxCountOfEvents - it.countOfEvents} мероприятий.",
+            textScaleFactor: 1.25)
       ]));
 }
 
@@ -98,7 +102,7 @@ class _TargetPageState extends State<TargetPage> {
       ),
       body: Column(children: [
         Container(
-          height: 200.0,
+          height: 205.0,
           width: double.infinity,
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
@@ -116,7 +120,8 @@ class _TargetPageState extends State<TargetPage> {
           child: Column(
             children: [
               Text("Ваши текущие цели:",
-                  style: TextStyle(color: Colors.deepOrange)),
+                  style: TextStyle(color: Colors.deepOrange),
+                  textScaleFactor: 1.25),
               EventsOverride.getEventsOverride(context),
             ],
           ),
@@ -142,9 +147,9 @@ class _TargetPageState extends State<TargetPage> {
                                       blurRadius: 10.0,
                                       offset: Offset(5, 5))
                                 ])),
-                        Text("Личные качества"))));
+                        Text("Личные качества", textScaleFactor: 1.1))));
               },
-              child: Text("Посмотреть личные качества"),
+              child: Text("Посмотреть личные качества", textScaleFactor: 1.20),
               icon: Icons.person),
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
