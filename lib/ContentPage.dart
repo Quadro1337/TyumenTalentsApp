@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 
 class ContentPage extends StatefulWidget {
-  Widget content;
-  Widget title;
+  final Widget content;
+  final Widget title;
   ContentPage(this.content, this.title);
   @override
   _ContentPageState createState() =>
@@ -10,12 +10,12 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
-  Widget content;
-  Widget title;
+  final Widget content;
+  final Widget title;
   _ContentPageState(this.content, this.title);
-  _getEmptyContain() {
+  _getEmptyContent() {
     return Container(
-      //height: 100,
+      height: 100,
       width: double.infinity,
       margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
       padding: EdgeInsets.all(20.0),
@@ -36,7 +36,8 @@ class _ContentPageState extends State<ContentPage> {
       appBar: AppBar(
         title: this.title,
       ),
-      body: content == null ? _getEmptyContain() : content,
+      body: SingleChildScrollView(
+          child: content == null ? _getEmptyContent() : content),
     );
   }
 }

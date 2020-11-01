@@ -1,13 +1,84 @@
 import "package:flutter/material.dart";
-import 'EmptyPage.dart';
+import 'package:flutter_app/BigButton.dart';
+import "ContentPage.dart";
 
 class TargetPage extends StatefulWidget {
   @override
   _TargetPageState createState() => _TargetPageState();
 }
 
-int countOfEvents = 11;
-int maxCountOfEvents = 50;
+class EventOverride {
+  final int countOfEvents;
+  final int maxCountOfEvents;
+  final String name;
+  const EventOverride(this.countOfEvents, this.maxCountOfEvents, this.name);
+}
+
+const eventsOverride = [
+  EventOverride(19, 25, "Спортивные мероприятия"),
+  EventOverride(1, 8, "Волонтерские мероприятия"),
+];
+
+Widget getItemByItself(it, context) {
+  return Container(
+      margin: EdgeInsets.only(top: 20.0),
+      child: Column(children: [
+        Text(it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})"),
+        Container(
+            padding:
+                EdgeInsets.only(top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
+            child: LinearProgressIndicator(
+              value: it.countOfEvents / it.maxCountOfEvents,
+              minHeight: 10,
+            )),
+        Text("${((it.countOfEvents / it.maxCountOfEvents) * 100).round()}%")
+      ]));
+}
+
+Widget getItemByItselfDetail(it, context) {
+  return Container(
+      margin: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+      padding: EdgeInsets.all(20.0),
+      decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
+        BoxShadow(
+            color: Color(0x350000000),
+            spreadRadius: 5.0,
+            blurRadius: 10.0,
+            offset: Offset(5, 5))
+      ]),
+      child: Column(children: [
+        Text(it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})"),
+        Container(
+            padding:
+                EdgeInsets.only(top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
+            child: LinearProgressIndicator(
+              value: it.countOfEvents / it.maxCountOfEvents,
+              minHeight: 10,
+            )),
+        Text("${((it.countOfEvents / it.maxCountOfEvents) * 100).round()}%"),
+        Text(
+            "Для того чтобы закончить данное задание вам надо посетить еще ${it.maxCountOfEvents - it.countOfEvents} (${(it.countOfEvents / it.maxCountOfEvents * 100).round()}%) мероприятий.")
+      ]));
+}
+
+class EventsOverride {
+  static Widget getEventsOverride(context) {
+    // parent of all of them
+    List<Widget> container = [];
+
+    // return ret;
+    eventsOverride.forEach((it) => {
+          container.add(FlatButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ContentPage(
+                        getItemByItselfDetail(it, context), Text(it.name))));
+              },
+              child: getItemByItself(it, context)))
+        });
+    return Container(child: Column(children: container));
+  }
+}
 
 class _TargetPageState extends State<TargetPage> {
   @override
@@ -34,23 +105,21 @@ class _TargetPageState extends State<TargetPage> {
             children: [
               Text("Ваши текущие цели:",
                   style: TextStyle(color: Colors.deepOrange)),
-              Text(
-                  "Пройденные спортивные события (${countOfEvents} из ${maxCountOfEvents})"),
-              Container(
-                  padding: EdgeInsets.only(
-                      top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
-                  child: LinearProgressIndicator(
-                    value: countOfEvents / maxCountOfEvents,
-                    minHeight: 10,
-                  )),
-              Text("${((countOfEvents / maxCountOfEvents) * 100).round()}%"),
+              EventsOverride.getEventsOverride(context),
             ],
           ),
         ),
         Container(
-          height: 200.0,
+          height: 90.0,
           width: double.infinity,
-          child: Text("Скоро здесь что-то будет."),
+          child: BigButton(
+              callback: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        ContentPage(Container(), Text("Личные качества"))));
+              },
+              child: Text("Посмотреть личные качества"),
+              icon: Icons.person),
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
           padding: EdgeInsets.all(20.0),

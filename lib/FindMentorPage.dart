@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import 'EmptyPage.dart';
+import "EmptyPage.dart";
+import "ContentPage.dart";
 
 class DefaultTask extends StatelessWidget {
   final String title;
@@ -7,34 +8,42 @@ class DefaultTask extends StatelessWidget {
   final List<Widget> hashtags;
   const DefaultTask({Key key, this.title, this.description, this.hashtags})
       : super(key: key);
+  _getContent(BuildContext context) {
+    return Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(10.0),
+        margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+        decoration: BoxDecoration(color: Color(0x0FFF1F00)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                margin: EdgeInsets.only(bottom: 10.0), child: Text(title)),
+            Text(description),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Column(children: hashtags),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => EmptyPage()));
+              },
+              child: Text("Искать наставника"),
+            )
+          ],
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      padding: EdgeInsets.all(10.0),
-      //width: 300.0,
-      //height: 120.0,
-      margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
-      decoration: BoxDecoration(color: Color(0x0FFF1F00)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(title),
-          Text(description),
-          Container(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: hashtags),
-          ),
-          RaisedButton(
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => EmptyPage()));
-            },
-            child: Text("Искать наставника"),
-          )
-        ],
-      ),
-    );
+    return FlatButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  ContentPage(_getContent(context), Container())));
+        },
+        child: _getContent(context));
   }
 }
 

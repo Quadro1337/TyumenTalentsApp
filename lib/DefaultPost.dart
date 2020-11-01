@@ -20,8 +20,8 @@ class DefaultPost extends StatelessWidget {
               offset: Offset(5, 5))
         ]),
         width: double.infinity,
-        margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
-        padding: EdgeInsets.only(top: 20.0, left: 20.0, bottom: 20.0),
+        margin: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
         child: Column(children: [
           Container(
               margin: EdgeInsets.only(bottom: 10.0),
@@ -43,10 +43,7 @@ class DefaultPost extends StatelessWidget {
               )),
           Container(
               padding: EdgeInsets.only(right: 10.0),
-              child: Text(
-                value,
-                textScaleFactor: 1.15,
-              )),
+              child: Text(value, textScaleFactor: 1.15)),
         ]));
   }
 
