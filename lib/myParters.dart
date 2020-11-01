@@ -16,13 +16,16 @@ class MyPartners extends StatelessWidget {
             padding: EdgeInsets.only(top: 20.0, bottom: 0.0),
             margin: EdgeInsets.only(
                 left: 20.0, right: 20.0, top: 10.0, bottom: 20.0),
-            decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-              BoxShadow(
-                  color: Color(0x350000000),
-                  spreadRadius: 5.0,
-                  blurRadius: 10.0,
-                  offset: Offset(5, 5))
-            ]),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: Color(0xFFFFFFFF),
+                boxShadow: [
+                  BoxShadow(
+                      color: Color(0x350000000),
+                      spreadRadius: 5.0,
+                      blurRadius: 10.0,
+                      offset: Offset(5, 5))
+                ]),
             child: Column(
               children: [
                 Container(

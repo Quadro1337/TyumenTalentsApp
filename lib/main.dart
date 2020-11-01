@@ -38,7 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Таланты 72"),
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            color: Colors.white),
         child: _getPage(currentPage),
       ),
       bottomNavigationBar: FancyBottomNavigation(
@@ -134,13 +136,16 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
                 margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-                decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-                  BoxShadow(
-                      color: Color(0x350000000),
-                      spreadRadius: 5.0,
-                      blurRadius: 10.0,
-                      offset: Offset(5, 5))
-                ]),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: Color(0xFFFFFFFF),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color(0x350000000),
+                          spreadRadius: 5.0,
+                          blurRadius: 10.0,
+                          offset: Offset(5, 5))
+                    ]),
                 width: double.infinity,
                 height: 120.0,
                 alignment: Alignment.centerLeft,
@@ -162,15 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: BigButton(
                           callback: () {},
                           child: Text("Искать"),
-                        )
-                        // child: FlatButton(
-                        //   onPressed: () {},
-                        //   child: Text("Искать"),
-                        //   shape: StadiumBorder(),
-                        //   color: Colors.deepOrange,
-                        //   textColor: Colors.white,
-                        // )
-                        )
+                        ))
                   ],
                 )),
             Container(
@@ -184,13 +181,16 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-              decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-                BoxShadow(
-                    color: Color(0x350000000),
-                    spreadRadius: 5.0,
-                    blurRadius: 10.0,
-                    offset: Offset(5, 5))
-              ]),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Color(0xFFFFFFFF),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0x350000000),
+                        spreadRadius: 5.0,
+                        blurRadius: 10.0,
+                        offset: Offset(5, 5))
+                  ]),
               width: double.infinity,
               height: 80.0,
               alignment: Alignment.center,

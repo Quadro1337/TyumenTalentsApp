@@ -13,13 +13,16 @@ class DefaultEvent extends StatelessWidget {
       : super(key: key);
   _getContent() {
     return Container(
-        decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-          BoxShadow(
-              color: Color(0x350000000),
-              spreadRadius: 5.0,
-              blurRadius: 10.0,
-              offset: Offset(5, 5))
-        ]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            color: Color(0xFFFFFFFF),
+            boxShadow: [
+              BoxShadow(
+                  color: Color(0x350000000),
+                  spreadRadius: 5.0,
+                  blurRadius: 10.0,
+                  offset: Offset(5, 5))
+            ]),
         width: double.infinity,
         margin: EdgeInsets.all(10.0),
         padding:

@@ -39,25 +39,34 @@ Widget getItemByItselfDetail(it, context) {
   return Container(
       margin: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
       padding: EdgeInsets.all(20.0),
-      decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-        BoxShadow(
-            color: Color(0x350000000),
-            spreadRadius: 5.0,
-            blurRadius: 10.0,
-            offset: Offset(5, 5))
-      ]),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Color(0xFFFFFFFF),
+          boxShadow: [
+            BoxShadow(
+                color: Color(0x350000000),
+                spreadRadius: 5.0,
+                blurRadius: 10.0,
+                offset: Offset(5, 5))
+          ]),
       child: Column(children: [
-        Text(it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})"),
         Container(
-            padding:
-                EdgeInsets.only(top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
-            child: LinearProgressIndicator(
-              value: it.countOfEvents / it.maxCountOfEvents,
-              minHeight: 10,
-            )),
-        Text("${((it.countOfEvents / it.maxCountOfEvents) * 100).round()}%"),
+            padding: EdgeInsets.only(bottom: 10.0),
+            child: Column(children: [
+              Text(
+                  it.name + " (${it.countOfEvents} из ${it.maxCountOfEvents})"),
+              Container(
+                  padding: EdgeInsets.only(
+                      top: 3.0, left: 20.0, right: 20.0, bottom: 3.0),
+                  child: LinearProgressIndicator(
+                    value: it.countOfEvents / it.maxCountOfEvents,
+                    minHeight: 10,
+                  )),
+              Text(
+                  "Осталось ${(100.0 - it.countOfEvents / it.maxCountOfEvents * 100.0).round()}%")
+            ])),
         Text(
-            "Для того чтобы закончить данное задание вам надо посетить еще ${it.maxCountOfEvents - it.countOfEvents} (${(it.countOfEvents / it.maxCountOfEvents * 100).round()}%) мероприятий.")
+            "Для того чтобы закончить данное задание вам надо посетить еще ${it.maxCountOfEvents - it.countOfEvents} мероприятий.")
       ]));
 }
 
@@ -94,13 +103,16 @@ class _TargetPageState extends State<TargetPage> {
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
           padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-            BoxShadow(
-                color: Color(0x350000000),
-                spreadRadius: 5.0,
-                blurRadius: 10.0,
-                offset: Offset(5, 5))
-          ]),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              color: Color(0xFFFFFFFF),
+              boxShadow: [
+                BoxShadow(
+                    color: Color(0x350000000),
+                    spreadRadius: 5.0,
+                    blurRadius: 10.0,
+                    offset: Offset(5, 5))
+              ]),
           child: Column(
             children: [
               Text("Ваши текущие цели:",
@@ -115,21 +127,38 @@ class _TargetPageState extends State<TargetPage> {
           child: BigButton(
               callback: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
-                        ContentPage(Container(), Text("Личные качества"))));
+                    builder: (context) => ContentPage(
+                        Container(
+                            child: Image.asset("assets/images/diagram.jpg"),
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                color: Color(0xFFFFFFFF),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color(0x350000000),
+                                      spreadRadius: 5.0,
+                                      blurRadius: 10.0,
+                                      offset: Offset(5, 5))
+                                ])),
+                        Text("Личные качества"))));
               },
               child: Text("Посмотреть личные качества"),
               icon: Icons.person),
           margin:
               EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
           padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(color: Color(0xFFFFFFFF), boxShadow: [
-            BoxShadow(
-                color: Color(0x350000000),
-                spreadRadius: 5.0,
-                blurRadius: 10.0,
-                offset: Offset(5, 5))
-          ]),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              color: Color(0xFFFFFFFF),
+              boxShadow: [
+                BoxShadow(
+                    color: Color(0x350000000),
+                    spreadRadius: 5.0,
+                    blurRadius: 10.0,
+                    offset: Offset(5, 5))
+              ]),
         )
       ]),
     );
